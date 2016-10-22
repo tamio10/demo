@@ -17,8 +17,8 @@ body { margin:0; padding:0; }
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGZ1IiwiYSI6ImlRSGJVUTAifQ.rTx380smyvPc1gUfZv1cmw';
 map = new mapboxgl.Map({
-  container: 'map', style: 'mapbox://styles/mapbox/dark-v9',
-  center: [20.390625,  44.58831], zoom: 8.0, hash: true, maxZoom: 10
+  container: 'map', style: 'mapbox://styles/mapbox/satellite-v9',
+  center: [20.390625,  44.58831], zoom: 8.0, hash: true, maxZoom: 12
 });
 colors = [
   'FC49A3', 'CC66FF', '66CCFF', '66FFCC',
@@ -34,20 +34,409 @@ map.on('load', function () {
     type: 'vector', maxzoom: 8
   });
   map.addLayer({
-    'id': 'AP030-lines',
-    'type': 'line',
-    'source': 'globalmaps-vt',
-    'source-layer': 'AP030',
-    'layout': {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
+    'id': 'AN010',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'AN010',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
     'paint': {
-      'line-color': randomColor(),
+      'line-color': '#000',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'AN500',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'AN500',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#e7b2a8',
+      'line-width': 2
+    }
+  });
+  map.addLayer({
+    'id': 'AP030',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'AP030',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#ccc',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'AP050',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'AP050',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#ccc',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'AP500',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'AP500',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#ccc',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'AQ040',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'AQ040',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#f00',
+      'line-width': 2
+    }
+  });
+  map.addLayer({
+    'id': 'AQ070',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'AQ070',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#5494a8',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'AQ130',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'AQ130',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#f00',
+      'line-width': 2
+    }
+  });
+  map.addLayer({
+    'id': 'BA010',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'BA010',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#5494a8',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'BH140',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'BH140',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#54a498',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'BH210',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'BH210',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#5494a8',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'BH502',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'BH502',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#5494a8',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'BI020',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'BI020',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#aaf',
+      'line-width': 2
+    }
+  });
+  map.addLayer({
+    'id': 'BI030',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'BI030',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#aaf',
+      'line-width': 2
+    }
+  });
+  map.addLayer({
+    'id': 'FA000',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'FA000',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#f00',
+      'line-width': 1
+    }
+  });
+  map.addLayer({
+    'id': 'XX500',
+    'type': 'line', 'source': 'globalmaps-vt', 'source-layer': 'XX500',
+    'layout': {'line-join': 'round', 'line-cap': 'round'},
+    'paint': {
+      'line-color': '#00f',
       'line-width': 1
     }
   });
 
+  map.addLayer({
+    'id': 'AL020-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AL020',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AL105-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AL105',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AN060-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AN060',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AP020-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AP020',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AQ062-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AQ062',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AQ063-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AQ063',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AQ080-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AQ080',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AQ090-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AQ090',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AQ125-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AQ125',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'AQ135-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'AQ135',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'BH170-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'BH170',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'BH503-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'BH503',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'BI029-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'BI029',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'BI030-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'BI030',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'GB005-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'GB005',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+  map.addLayer({
+    'id': 'ZD040-pt', 'type': 'symbol',
+    'source': 'globalmaps-vt', 'source-layer': 'ZD040',
+    'paint': {
+      'text-color': randomColor()
+    },
+    'layout': {
+      'text-field': '*',
+    }
+  });
+
+  map.addLayer({
+    'id': 'AL020-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'AL020',
+    'paint': {
+      'fill-color': '#f00',
+      'fill-opacity': 0.3
+    }
+  });
+  map.addLayer({
+    'id': 'BA020-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'BA020',
+    'paint': {
+      'fill-color': '#e3f3f7',
+      'fill-opacity': 0.5
+    }
+  });
+  map.addLayer({
+    'id': 'BA030-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'BA030',
+    'paint': {
+      'fill-color': randomColor(),
+      'fill-opacity': 0.8
+    }
+  });
+  map.addLayer({
+    'id': 'BA040-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'BA040',
+    'paint': {
+      'fill-color': '#e3f3f7',
+      'fill-opacity': 0.8
+    }
+  });
+  map.addLayer({
+    'id': 'BH000-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'BH000',
+    'paint': {
+      'fill-color': '#5494a8',
+      'fill-opacity': 0.8
+    }
+  });
+  map.addLayer({
+    'id': 'BH080-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'BH080',
+    'paint': {
+      'fill-color': '#e3f3f7',
+      'fill-opacity': 0.8
+    }
+  });
+  map.addLayer({
+    'id': 'BH130-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'BH130',
+    'paint': {
+      'fill-color': '#e3f3f7',
+      'fill-opacity': 0.8
+    }
+  });
+  map.addLayer({
+    'id': 'BJ030-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'BJ030',
+    'paint': {
+      'fill-color': '#ccf',
+      'fill-opacity': 0.5
+    }
+  });
+  map.addLayer({
+    'id': 'BJ100-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'BJ100',
+    'paint': {
+      'fill-color': '#ccf',
+      'fill-opacity': 0.5
+    }
+  });
+  map.addLayer({
+    'id': 'FA001-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'FA001',
+    'paint': {
+      'fill-color': '#fffcdb',
+      'fill-opacity': 0.1
+    }
+  });
+  map.addLayer({
+    'id': 'XX501-pg', 'type': 'fill',
+    'source': 'globalmaps-vt', 'source-layer': 'XX501',
+    'paint': {
+      'fill-color': '#ff0',
+      'fill-opacity': 0.8
+    }
+  });
+
+});
+map.on('click', function (e) {
+  var features = map.queryRenderedFeatures(e.point, { layers: ['FA001-pg'] });
+  if (!features.length) {return;}
+  var feature = features[0];
+  var popup = new mapboxgl.Popup()
+    .setLngLat(map.unproject(e.point))
+    .setHTML(feature.properties.nam + ' ' + feature.properties.laa)
+    .addTo(map);
 });
 </script>
 </body>
