@@ -429,13 +429,24 @@ map.on('load', function () {
   });
 
 });
-map.on('click', function (e) {
-  var features = map.queryRenderedFeatures(e.point, { layers: ['FA001-pg'] });
-  if (!features.length) {return;}
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    //layers: ['FA001-pg']
+  });
+  if (!features.length) return;
+  var s = features.length + ' features.<br/>';
+  for(var i in features) {
+    var f_code = features[i].properties.f_code;
+    s += f_code;
+    if(f_code == 'FA001') {
+      s += ' ' + features[i].properties.nam + ' ' + features[i].properties.laa;
+    }
+    s += '<br/>';
+  }
   var feature = features[0];
   var popup = new mapboxgl.Popup()
     .setLngLat(map.unproject(e.point))
-    .setHTML(feature.properties.nam + ' ' + feature.properties.laa)
+    .setHTML(s)
     .addTo(map);
 });
 </script>
